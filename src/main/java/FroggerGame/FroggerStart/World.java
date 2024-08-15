@@ -1,4 +1,4 @@
-package FroggerGame;
+package FroggerGame.FroggerStart;
 
 
 import java.util.ArrayList;

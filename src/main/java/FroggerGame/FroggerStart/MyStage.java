@@ -2,7 +2,6 @@ package FroggerGame.FroggerStart;
 
 import java.io.File;
 
-import FroggerGame.World;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;

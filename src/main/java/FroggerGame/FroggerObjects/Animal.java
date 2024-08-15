@@ -2,7 +2,7 @@ package FroggerGame.FroggerObjects;
 
 import java.util.ArrayList;
 
-import FroggerGame.*;
+import FroggerGame.FroggerStart.End;
 import javafx.event.EventHandler;
 
 import javafx.scene.image.Image;
