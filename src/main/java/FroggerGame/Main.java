@@ -1,7 +1,4 @@
-package p4_group_8_repo;
-
-import java.io.File;
-import java.util.List;
+package FroggerGame;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
