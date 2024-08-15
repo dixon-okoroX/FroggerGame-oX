@@ -1,4 +1,4 @@
-package FroggerGame;
+package FroggerGame.FroggerObjects;
 
 import FroggerGame.FroggerObjects.Actor;
 import javafx.scene.image.Image;

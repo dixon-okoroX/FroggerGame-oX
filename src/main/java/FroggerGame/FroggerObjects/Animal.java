@@ -1,8 +1,8 @@
-package FroggerGame;
+package FroggerGame.FroggerObjects;
 
 import java.util.ArrayList;
 
-import FroggerGame.FroggerObjects.Actor;
+import FroggerGame.*;
 import javafx.event.EventHandler;
 
 import javafx.scene.image.Image;

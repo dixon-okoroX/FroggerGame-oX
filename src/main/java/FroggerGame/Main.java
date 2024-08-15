@@ -1,5 +1,8 @@
 package FroggerGame;
 
+import FroggerGame.FroggerObjects.Animal;
+import FroggerGame.FroggerObjects.Turtle;
+import FroggerGame.FroggerObjects.WetTurtle;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
