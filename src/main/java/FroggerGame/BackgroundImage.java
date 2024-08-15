@@ -1,8 +1,9 @@
 package FroggerGame;
 
+import FroggerGame.FroggerObjects.Actor;
 import javafx.scene.image.Image;
 
-public class BackgroundImage extends Actor{
+public class BackgroundImage extends Actor {
 
 	@Override
 	public void act(long now) {

@@ -1,8 +1,9 @@
 package FroggerGame;
 
+import FroggerGame.FroggerObjects.Actor;
 import javafx.scene.image.Image;
 
-public class WetTurtle extends Actor{
+public class WetTurtle extends Actor {
 	Image turtle1;
 	Image turtle2;
 	Image turtle3;

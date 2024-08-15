@@ -1,8 +1,9 @@
 package FroggerGame;
 
+import FroggerGame.FroggerObjects.Actor;
 import javafx.scene.image.Image;
 
-public class Digit extends Actor{
+public class Digit extends Actor {
 	int dim;
 	Image im1;
 	@Override

@@ -4,6 +4,7 @@ package FroggerGame;
 import java.util.ArrayList;
 import java.util.List;
 
+import FroggerGame.FroggerObjects.Actor;
 import javafx.animation.AnimationTimer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

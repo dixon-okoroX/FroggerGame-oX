@@ -2,6 +2,7 @@ package FroggerGame;
 
 import java.util.ArrayList;
 
+import FroggerGame.FroggerObjects.Actor;
 import javafx.event.EventHandler;
 
 import javafx.scene.image.Image;

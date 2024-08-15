@@ -1,5 +1,6 @@
 package FroggerGame;
 
+import FroggerGame.FroggerObjects.Actor;
 import javafx.scene.image.Image;
 
 public class Obstacle extends Actor {
