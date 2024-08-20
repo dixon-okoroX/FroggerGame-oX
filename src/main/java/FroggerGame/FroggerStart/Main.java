@@ -54,14 +54,14 @@ public class Main extends Application {
 		BackgroundImage froggerback = new BackgroundImage(getClass().getResource("/Graphics/iKogsKW.png").toExternalForm());
 		background.add(froggerback);
 
-		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 0, 166, 0.75));
-		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 220, 166, 0.75));
-		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 440, 166, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 200, 0, 186, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 200, 220, 186, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 200, 440, 186, 0.75));
 		background.add(new Log(getClass().getResource("/Graphics/LogImgs/logs.png").toExternalForm(), 300, 0, 276, -2));
 		background.add(new Log(getClass().getResource("/Graphics/LogImgs/logs.png").toExternalForm(), 300, 400, 276, -2));
-		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 50, 329, 0.75));
-		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 270, 329, 0.75));
-		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 490, 329, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 50, 365, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 270, 365, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 490, 365, 0.75));
 
 		background.add(new Turtle(500, 376, -1, 130, 130));
 		background.add(new Turtle(300, 376, -1, 130, 130));
