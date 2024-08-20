@@ -1,5 +1,9 @@
 package FroggerGame.FroggerStart;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import FroggerGame.FroggerObjects.Animal;
 import FroggerGame.FroggerObjects.Obstacle;
 import FroggerGame.FroggerObjects.WetTurtle;
@@ -18,6 +22,7 @@ public class Main extends Application {
 	private Animal animal;
 	private Stage primaryStage;  // This is now initialized in the start method.
 	private Scene gameScene;
+	private List<Integer> scores = new ArrayList<>();
 
 	public static void main(String[] args) {
 		launch(args);
@@ -93,6 +98,15 @@ public class Main extends Application {
 		start();
 	}
 
+	public void addScore(int score) {
+		scores.add(score);
+		Collections.sort(scores, Collections.reverseOrder()); // Sort scores in descending order
+	}
+
+	public List<Integer> getScores() {
+		return scores;
+	}
+
 	public void createTimer() {
 		timer = new AnimationTimer() {
 			@Override
@@ -101,19 +115,39 @@ public class Main extends Application {
 					setNumber(animal.getPoints());
 				}
 				if (animal.getStop()) {
-					System.out.print("STOPP:");
 					background.stopMusic();
 					stop();
 					background.stop();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("You Have Won The Game!");
-					alert.setHeaderText("Your High Score: " + animal.getPoints() + "!");
-					alert.setContentText("Highest Possible Score: 800");
-					alert.show();
+
+					// Add the score to the list
+					addScore(animal.getPoints());
+
+					// Show High Score Popup
+					showHighScorePopup();
+
+					// Show the high score popup
+					showHighScorePopup();
 				}
 			}
 		};
 	}
+
+	private void showHighScorePopup() {
+		StringBuilder highScores = new StringBuilder();
+		highScores.append("HIGH SCORES:\n\n");
+
+		for (int i = 0; i < scores.size(); i++) {
+			highScores.append((i + 1) + ". " + scores.get(i) + "\n");
+		}
+
+		// Display the high scores in an alert
+		Alert alert = new Alert(Alert.AlertType.INFORMATION);
+		alert.setTitle("High Scores");
+		alert.setHeaderText("End of Round High Scores");
+		alert.setContentText(highScores.toString());
+		alert.show();
+	}
+
 
 	public void start() {
 		background.playMusic();
