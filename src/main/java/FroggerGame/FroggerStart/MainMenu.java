@@ -11,16 +11,21 @@ import javafx.stage.Stage;
 
 public class MainMenu extends Scene {
     private Stage stage;
+    private Main mainApp;  // Reference to the Main class instance
 
-    public MainMenu(Stage stage) {
+    public MainMenu(Stage stage, Main mainApp) {
         super(new VBox(), 800, 600);
         this.stage = stage;
+        this.mainApp = mainApp;
 
+        // Initialize the menu UI components
         VBox root = (VBox) getRoot();
         root.setAlignment(Pos.CENTER);
         root.setSpacing(20);
 
-        // Set background image
+
+
+    // Set background image
         ImageView background = new ImageView(new Image(getClass().getResource("/Graphics/frog background.png").toExternalForm()));
         background.setFitWidth(800);
         background.setFitHeight(600);
@@ -51,9 +56,8 @@ public class MainMenu extends Scene {
     }
 
     private void startGame() {
-        // Call the startGame method from Main class
-        Main mainApp = new Main();
-        mainApp.startGame(stage);  // This will now work because startGame is public
+        // Use the existing Main instance to start the game
+        mainApp.startGame(stage);
     }
 
     private void showOptions() {

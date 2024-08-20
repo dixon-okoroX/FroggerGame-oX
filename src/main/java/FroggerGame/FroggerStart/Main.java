@@ -1,4 +1,5 @@
 package FroggerGame.FroggerStart;
+
 import FroggerGame.FroggerObjects.Animal;
 import FroggerGame.FroggerObjects.Obstacle;
 import FroggerGame.FroggerObjects.WetTurtle;
@@ -9,22 +10,13 @@ import javafx.scene.Scene;
 import FroggerGame.FroggerObjects.Log;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import javafx.scene.layout.VBox;
-import javafx.scene.control.Button;
-import javafx.geometry.Pos;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 public class Main extends Application {
 	private AnimationTimer timer;
 	private MyStage background;
 	private Animal animal;
-	private Stage primaryStage;
+	private Stage primaryStage;  // This is now initialized in the start method.
 	private Scene gameScene;
 
 	public static void main(String[] args) {
@@ -33,13 +25,22 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		showMainMenu(primaryStage);  // Show the main menu at startup
+		this.primaryStage = primaryStage;  // Assign the primaryStage here.
+		primaryStage.setTitle("Frogger Game");
+
+		// Pass both the primaryStage and this instance of Main
+		MainMenu mainMenu = new MainMenu(primaryStage, this);
+		primaryStage.setScene(mainMenu);
+		primaryStage.show();
 	}
+
+
 	public void showMainMenu(Stage stage) {
-		MainMenu mainMenu = new MainMenu(stage);
+		MainMenu mainMenu = new MainMenu(stage,this);
 		stage.setScene(mainMenu);
 		stage.show();
 	}
+
 	public void startGame(Stage stage) {
 		// Initialize game components
 		background = new MyStage();
@@ -87,8 +88,8 @@ public class Main extends Application {
 		background.add(new Obstacle(getClass().getResource("/Graphics/CarImages/car1Left.png").toExternalForm(), 500, 490, -5, 50, 50));
 
 		background.start();
-		primaryStage.setScene(gameScene);
-		primaryStage.show();
+		this.primaryStage.setScene(gameScene);  // Use the primaryStage here.
+		this.primaryStage.show();
 		start();
 	}
 
@@ -114,7 +115,6 @@ public class Main extends Application {
 		};
 	}
 
-
 	public void start() {
 		background.playMusic();
 		if (timer == null) {
@@ -128,7 +128,6 @@ public class Main extends Application {
 			timer.stop();
 		}
 	}
-
 
 	public void setNumber(int n) {
 		int shift = 0;
