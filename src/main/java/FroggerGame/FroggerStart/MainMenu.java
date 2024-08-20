@@ -1,6 +1,6 @@
 package FroggerGame.FroggerStart;
 
-import java.net.URL;  // Import URL class
+import java.net.URL;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -13,10 +13,21 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+/**
+ * The {@code MainMenu} class represents the main menu of the Frogger game.
+ * It provides the interface to start the game, view game information, or exit the game.
+ * This class extends {@code Scene} to display the menu on the screen.
+ */
 public class MainMenu extends Scene {
     private Stage stage;
     private Main mainApp;  // Reference to the Main class instance
 
+    /**
+     * Constructs a new {@code MainMenu} scene.
+     *
+     * @param stage   the primary stage of the application
+     * @param mainApp the main application instance
+     */
     public MainMenu(Stage stage, Main mainApp) {
         super(new BorderPane(), 600, 800);  // Adjusted dimensions to match the game
         this.stage = stage;
@@ -69,13 +80,17 @@ public class MainMenu extends Scene {
         root.setCenter(menuBox);
     }
 
+    /**
+     * Starts the game by transitioning from the main menu to the game scene.
+     */
     private void startGame() {
-        // Use the existing Main instance to start the game
         mainApp.startGame(stage);
     }
 
+    /**
+     * Displays game information in a pop-up dialog.
+     */
     private void showInfo() {
-        // Show game information in an alert dialog
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Game Information");
         alert.setHeaderText("How to Play Frogger");
@@ -92,8 +107,10 @@ public class MainMenu extends Scene {
         alert.showAndWait();
     }
 
+    /**
+     * Exits the game by closing the primary stage.
+     */
     private void exitGame() {
-        // Exit the application
         System.out.println("Exiting the game...");
         stage.close();
     }
