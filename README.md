@@ -5,11 +5,11 @@
 Frogger Game is a JavaFX-based implementation of the classic arcade game Frogger. In this game, the player controls a frog and must navigate it across roads and rivers while avoiding obstacles and reaching designated goal areas. The game involves moving the frog up the screen, dodging cars, and using logs and turtles to cross the water.
 
 # Features
-Player Control: Move the frog using arrow keys.
-Obstacles: Avoid cars and trucks on the road.
-Water Navigation: Use logs and turtles to cross rivers.
-Scoring: Earn points by reaching goal areas and avoid losing points when hit by obstacles.
-Game States: Includes game start, in-progress, and end states.
+- Player Control: Move the frog using arrow keys.
+-  Obstacles: Avoid cars and trucks on the road.
+- Water Navigation: Use logs and turtles to cross rivers.
+- Scoring: Earn points by reaching goal areas and avoid losing points when hit by obstacles.
+- Game States: Includes game start, in-progress, and end states.
 # Requirements
 Java Development Kit (JDK): Version 11 or higher.
 JavaFX: Ensure JavaFX SDK is properly set up with your JDK.
