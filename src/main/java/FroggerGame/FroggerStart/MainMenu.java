@@ -1,5 +1,6 @@
 package FroggerGame.FroggerStart;
 
+import java.net.URL;  // Import URL class
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -24,11 +25,18 @@ public class MainMenu extends Scene {
         // Root layout for the scene
         BorderPane root = (BorderPane) getRoot();
 
-        // Set background image
-        ImageView background = new ImageView(new Image(getClass().getResource("/Graphics/iKogsKW.png").toExternalForm()));
-        background.setFitWidth(600);
-        background.setFitHeight(800);
-        root.setCenter(background);
+        // Validate and set background image
+        URL imageUrl = getClass().getResource("/Graphics/iKogsKW.png");
+        if (imageUrl == null) {
+            System.err.println("Image not found!");
+            root.setStyle("-fx-background-color: grey;");
+        } else {
+            Image backgroundImage = new Image(imageUrl.toExternalForm());
+            ImageView background = new ImageView(backgroundImage);
+            background.setFitWidth(600);
+            background.setFitHeight(800);
+            root.setCenter(background);
+        }
 
         // Create VBox for menu items
         VBox menuBox = new VBox(20);  // 20px spacing between items

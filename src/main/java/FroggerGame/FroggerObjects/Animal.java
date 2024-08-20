@@ -1,7 +1,6 @@
 package FroggerGame.FroggerObjects;
 
 import java.util.ArrayList;
-
 import FroggerGame.FroggerStart.End;
 import javafx.event.EventHandler;
 import javafx.scene.image.Image;
@@ -30,7 +29,6 @@ public class Animal extends Actor {
 		setX(300);
 		setY(679.8 + movement);
 
-		// Load images using getClass().getResource()
 		imgW1 = new Image(getClass().getResource("/Graphics/FroggerImgs/froggerUp.png").toExternalForm(), imgSize, imgSize, true, true);
 		imgA1 = new Image(getClass().getResource("/Graphics/FroggerImgs/froggerLeft.png").toExternalForm(), imgSize, imgSize, true, true);
 		imgS1 = new Image(getClass().getResource("/Graphics/FroggerImgs/froggerDown.png").toExternalForm(), imgSize, imgSize, true, true);
@@ -140,11 +138,9 @@ public class Animal extends Actor {
 
 	@Override
 	public void act(long now) {
-		// Check if out of bounds
 		if (getY() < 0) {
-			// End the game if reaching the top
 			endGame();
-			return; // Stop processing further
+			return;
 		}
 		if (getY() > 734) {
 			setX(300);
@@ -257,16 +253,30 @@ public class Animal extends Actor {
 		} else if (getY() < 413) {
 			waterDeath = true;
 		}
+
+		// Check for victory condition
+		if (end >= 5) {
+			stop = true;
+			endGame();
+		}
 	}
 
 	private void endGame() {
 		stop = true; // Set flag to stop the game
 		noMove = true; // Stop any further movement
-		// Display victory screen or handle victory logic here
+		// Notify the Main class or a controller that the game has ended
+		// This can be done via a callback, event, or any other mechanism you use
+		notifyGameEnd();
+	}
+
+	private void notifyGameEnd() {
+		// Implement the mechanism to notify the Main class or controller
+		// For example:
+		// Main.getController().showVictoryPopup();
 	}
 
 	public boolean getStop() {
-		return end == 5 || stop;
+		return end >= 5 || stop;
 	}
 
 	public int getPoints() {
