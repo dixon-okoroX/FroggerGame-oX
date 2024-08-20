@@ -1,5 +1,6 @@
 package FroggerGame.FroggerStart;
 
+import java.net.URL;
 import FroggerGame.FroggerObjects.*;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -29,18 +30,18 @@ public class Main extends Application {
 		//Obstacle obstacle1 = new Obstacle("file:src/p4_group_8_repo/truck2Right.png", 100, 100,2 );
 		//Obstacle obstacle2 = new Obstacle("file:src/p4_group_8_repo/truck1Right.png",0,  150, 1);
 
-		BackgroundImage froggerback = new BackgroundImage(getClass().getResource("iKogsKW.png").toExternalForm());
+		BackgroundImage froggerback = new BackgroundImage(getClass().getResource("/Graphics/iKogsKW.png").toExternalForm());
 
 		background.add(froggerback);
 
-		background.add(new Log(getClass().getResource("/LogImgs/log3.png").toExternalForm(), 150, 0, 166, 0.75));
-		background.add(new Log(getClass().getResource("/LogImgs/log3.png").toExternalForm(), 150, 220, 166, 0.75));
-		background.add(new Log(getClass().getResource("/LogImgs/log3.png").toExternalForm(), 150, 440, 166, 0.75));
-		background.add(new Log(getClass().getResource("/LogImgs/logs.png").toExternalForm(), 300, 0, 276, -2));
-		background.add(new Log(getClass().getResource("/LogImgs/logs.png").toExternalForm(), 300, 400, 276, -2));
-		background.add(new Log(getClass().getResource("/LogImgs/log3.png").toExternalForm(), 150, 50, 329, 0.75));
-		background.add(new Log(getClass().getResource("/LogImgs/log3.png").toExternalForm(), 150, 270, 329, 0.75));
-		background.add(new Log(getClass().getResource("/LogImgs/log3.png").toExternalForm(), 150, 490, 329, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 0, 166, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 220, 166, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 440, 166, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/logs.png").toExternalForm(), 300, 0, 276, -2));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/logs.png").toExternalForm(), 300, 400, 276, -2));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 50, 329, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 270, 329, 0.75));
+		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 150, 490, 329, 0.75));
 		//background.add(new Log("file:src/p4_group_8_repo/log3.png", 150, 570, 329, 0.75));
 		
 		background.add(new Turtle(500, 376, -1, 130, 130));
@@ -73,21 +74,22 @@ public class Main extends Application {
 		background.add(new End(141 + 141-13,96));
 		background.add(new End(141 + 141-13+141-13+1,96));
 		background.add(new End(141 + 141-13+141-13+141-13+3,96));
-		animal = new Animal(getClass().getResource("/FroggerImages/froggerUp.png").toExternalForm());
+		animal = new Animal(getClass().getResource("/Graphics/FroggerImgs/froggerUp.png").toExternalForm());
+
 		background.add(animal);
 
-		background.add(new Obstacle(getClass().getResource("/TruckImages/truck1Right.png").toExternalForm(), 0, 649, 1, 120, 120));
-		background.add(new Obstacle(getClass().getResource("/TruckImages/truck1Right.png").toExternalForm(), 300, 649, 1, 120, 120));
-		background.add(new Obstacle(getClass().getResource("/TruckImages/truck1Right.png").toExternalForm(), 600, 649, 1, 120, 120));
+		background.add(new Obstacle(getClass().getResource("/Graphics/TruckImages/truck1Right.png").toExternalForm(), 0, 649, 1, 120, 120));
+		background.add(new Obstacle(getClass().getResource("/Graphics/TruckImages/truck1Right.png").toExternalForm(), 300, 649, 1, 120, 120));
+		background.add(new Obstacle(getClass().getResource("/Graphics/TruckImages/truck1Right.png").toExternalForm(), 600, 649, 1, 120, 120));
 
-		background.add(new Obstacle(getClass().getResource("/CarImages/car1Left.png").toExternalForm(), 100, 597, -1, 50, 50));
-		background.add(new Obstacle(getClass().getResource("/CarImages/car1Left.png").toExternalForm(), 250, 597, -1, 50, 50));
-		background.add(new Obstacle(getClass().getResource("/CarImages/car1Left.png").toExternalForm(), 400, 597, -1, 50, 50));
-		background.add(new Obstacle(getClass().getResource("/CarImages/car1Left.png").toExternalForm(), 550, 597, -1, 50, 50));
+		background.add(new Obstacle(getClass().getResource("/Graphics/CarImages/car1Left.png").toExternalForm(), 100, 597, -1, 50, 50));
+		background.add(new Obstacle(getClass().getResource("/Graphics/CarImages/car1Left.png").toExternalForm(), 250, 597, -1, 50, 50));
+		background.add(new Obstacle(getClass().getResource("/Graphics/CarImages/car1Left.png").toExternalForm(), 400, 597, -1, 50, 50));
+		background.add(new Obstacle(getClass().getResource("/Graphics/CarImages/car1Left.png").toExternalForm(), 550, 597, -1, 50, 50));
 
-		background.add(new Obstacle(getClass().getResource("/TruckImages/truck2Right.png").toExternalForm(), 0, 540, 1, 200, 200));
-		background.add(new Obstacle(getClass().getResource("/Truckimages/truck2Right.png").toExternalForm(), 500, 540, 1, 200, 200));
-		background.add(new Obstacle(getClass().getResource("/CarImages/car1Left.png").toExternalForm(), 500, 490, -5, 50, 50));
+		background.add(new Obstacle(getClass().getResource("/Graphics/TruckImages/truck2Right.png").toExternalForm(), 0, 540, 1, 200, 200));
+		background.add(new Obstacle(getClass().getResource("/Graphics/Truckimages/truck2Right.png").toExternalForm(), 500, 540, 1, 200, 200));
+		background.add(new Obstacle(getClass().getResource("/Graphics/CarImages/car1Left.png").toExternalForm(), 500, 490, -5, 50, 50));
 
 		//background.add(obstacle);
 		//background.add(obstacle1);
