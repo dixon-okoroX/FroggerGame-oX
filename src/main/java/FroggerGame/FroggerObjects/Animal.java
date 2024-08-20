@@ -19,7 +19,7 @@ public class Animal extends Actor {
 	private int imgSize = 40;
 	private boolean carDeath = false;
 	private boolean waterDeath = false;
-	private boolean stop = false;
+	private boolean stop = false; // Indicates the game has ended
 	private boolean changeScore = false;
 	private int carD = 0;
 	private double w = 800;
@@ -42,8 +42,8 @@ public class Animal extends Actor {
 
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
-				if (noMove) {
-					return;
+				if (noMove || stop) {
+					return; // Prevent movement if game is stopped
 				}
 				if (second) {
 					switch (event.getCode()) {
@@ -102,18 +102,18 @@ public class Animal extends Actor {
 
 		setOnKeyReleased(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event) {
-				if (noMove) {
-					return;
+				if (noMove || stop) {
+					return; // Prevent movement if game is stopped
 				}
 				switch (event.getCode()) {
 					case W:
+						move(0, -movement);
+						setImage(imgW1);
 						if (getY() < w) {
 							changeScore = true;
 							w = getY();
 							points += 10;
 						}
-						move(0, -movement);
-						setImage(imgW1);
 						second = false;
 						break;
 					case A:
@@ -140,7 +140,13 @@ public class Animal extends Actor {
 
 	@Override
 	public void act(long now) {
-		if (getY() < 0 || getY() > 734) {
+		// Check if out of bounds
+		if (getY() < 0) {
+			// End the game if reaching the top
+			endGame();
+			return; // Stop processing further
+		}
+		if (getY() > 734) {
 			setX(300);
 			setY(679.8 + movement);
 		}
@@ -253,8 +259,14 @@ public class Animal extends Actor {
 		}
 	}
 
+	private void endGame() {
+		stop = true; // Set flag to stop the game
+		noMove = true; // Stop any further movement
+		// Display victory screen or handle victory logic here
+	}
+
 	public boolean getStop() {
-		return end == 5;
+		return end == 5 || stop;
 	}
 
 	public int getPoints() {

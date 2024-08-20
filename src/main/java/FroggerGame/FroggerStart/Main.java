@@ -20,7 +20,7 @@ public class Main extends Application {
 	private AnimationTimer timer;
 	private MyStage background;
 	private Animal animal;
-	private Stage primaryStage;  // This is now initialized in the start method.
+	private Stage primaryStage;
 	private Scene gameScene;
 	private List<Integer> scores = new ArrayList<>();
 
@@ -30,7 +30,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		this.primaryStage = primaryStage;  // Assign the primaryStage here.
+		this.primaryStage = primaryStage;
 		primaryStage.setTitle("Frogger Game");
 
 		// Pass both the primaryStage and this instance of Main
@@ -39,9 +39,8 @@ public class Main extends Application {
 		primaryStage.show();
 	}
 
-
 	public void showMainMenu(Stage stage) {
-		MainMenu mainMenu = new MainMenu(stage,this);
+		MainMenu mainMenu = new MainMenu(stage, this);
 		stage.setScene(mainMenu);
 		stage.show();
 	}
@@ -54,6 +53,21 @@ public class Main extends Application {
 		BackgroundImage froggerback = new BackgroundImage(getClass().getResource("/Graphics/iKogsKW.png").toExternalForm());
 		background.add(froggerback);
 
+		// Add logs, turtles, wet turtles, end points, obstacles, etc.
+		setupGameElements();
+
+		animal = new Animal(getClass().getResource("/Graphics/FroggerImgs/froggerUp.png").toExternalForm());
+		background.add(animal);
+
+		// Start the background music and game loop
+		background.start();
+		this.primaryStage.setScene(gameScene);
+		this.primaryStage.show();
+		start();
+	}
+
+	private void setupGameElements() {
+		// Add game elements like logs, turtles, etc.
 		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 200, 0, 186, 0.75));
 		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 200, 220, 186, 0.75));
 		background.add(new Log(getClass().getResource("/Graphics/LogImgs/log3.png").toExternalForm(), 200, 440, 186, 0.75));
@@ -76,9 +90,6 @@ public class Main extends Application {
 		background.add(new End(141 + 141 - 13 + 141 - 13 + 1, 96));
 		background.add(new End(141 + 141 - 13 + 141 - 13 + 141 - 13 + 3, 96));
 
-		animal = new Animal(getClass().getResource("/Graphics/FroggerImgs/froggerUp.png").toExternalForm());
-		background.add(animal);
-
 		background.add(new Obstacle(getClass().getResource("/Graphics/TruckImages/truck1Right.png").toExternalForm(), 0, 649, 1, 120, 120));
 		background.add(new Obstacle(getClass().getResource("/Graphics/TruckImages/truck1Right.png").toExternalForm(), 300, 649, 1, 120, 120));
 		background.add(new Obstacle(getClass().getResource("/Graphics/TruckImages/truck1Right.png").toExternalForm(), 600, 649, 1, 120, 120));
@@ -91,11 +102,6 @@ public class Main extends Application {
 		background.add(new Obstacle(getClass().getResource("/Graphics/TruckImages/truck2Right.png").toExternalForm(), 0, 540, 1, 200, 200));
 		background.add(new Obstacle(getClass().getResource("/Graphics/Truckimages/truck2Right.png").toExternalForm(), 500, 540, 1, 200, 200));
 		background.add(new Obstacle(getClass().getResource("/Graphics/CarImages/car1Left.png").toExternalForm(), 500, 490, -5, 50, 50));
-
-		background.start();
-		this.primaryStage.setScene(gameScene);  // Use the primaryStage here.
-		this.primaryStage.show();
-		start();
 	}
 
 	public void addScore(int score) {
@@ -124,9 +130,6 @@ public class Main extends Application {
 
 					// Show High Score Popup
 					showHighScorePopup();
-
-					// Show the high score popup
-					showHighScorePopup();
 				}
 			}
 		};
@@ -147,7 +150,6 @@ public class Main extends Application {
 		alert.setContentText(highScores.toString());
 		alert.show();
 	}
-
 
 	public void start() {
 		background.playMusic();
