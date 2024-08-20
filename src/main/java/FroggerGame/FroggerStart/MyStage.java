@@ -2,10 +2,9 @@ package FroggerGame.FroggerStart;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 
 public class MyStage extends World {
-	MediaPlayer mediaPlayer;
+	private MediaPlayer mediaPlayer;
 
 	@Override
 	public void act(long now) {
@@ -18,7 +17,7 @@ public class MyStage extends World {
 
 	public void playMusic() {
 		try {
-			// Assuming the media file is in the resources folder under p4_group_8_repo
+			// Load the media file using getResource() and assuming the file is under /p4_group_8_repo
 			String musicFile = getClass().getResource("/p4_group_8_repo/Frogger Main Song Theme (loop).mp3").toExternalForm();
 			Media sound = new Media(musicFile);
 			mediaPlayer = new MediaPlayer(sound);
